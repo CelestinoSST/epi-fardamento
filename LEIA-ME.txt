@@ -1,0 +1,27 @@
+GESTÃO DE FARDAMENTO E EPI — PÁGINA INSTALÁVEL (ANDROID E IPHONE)
+
+Este conjunto é uma PÁGINA DE ENTRADA, não uma cópia integral da aplicação do Apps Script.
+Ao tocar em «Abrir aplicação», é aberto o Web App atual do Google Apps Script no navegador.
+
+PASSO 1 — PUBLICAR A PÁGINA (necessário HTTPS)
+Exemplo: GitHub Pages (gratuito, repositório público) ou alojamento web próprio.
+- Envie TODOS os ficheiros desta pasta para a raiz do site HTTPS, mantendo nomes e caminhos.
+- Se usar GitHub Pages, o repositório público expõe os ficheiros da página e o endereço do Apps Script (não publica o conteúdo do Google Sheets nem os PINs). Caso prefira privacidade, escolha um alojamento privado com HTTPS.
+- A página de instalação terá o URL HTTPS fornecido pelo alojamento; NÃO é o URL do Apps Script.
+
+PASSO 2 — ENVIAR O NOVO LINK AOS ENCARREGADOS
+Android/Chrome: abrir o endereço da página, usar «Instalar aplicação» ou «Adicionar ao ecrã principal».
+iPhone/Safari: abrir o endereço da página, Partilhar > Adicionar ao ecrã principal.
+O ícone criado aparecerá no ecrã inicial.
+
+PASSO 3 — ABRIR A APLICAÇÃO
+Tocar no ícone EPI/Fardamento; depois no botão «Abrir aplicação».
+A ligação abre o Apps Script, onde o login por encarregado/PIN continua igual.
+
+LIMITAÇÃO IMPORTANTE
+O Google Apps Script está noutro domínio. Abrir o Apps Script pode mudar para o navegador e não permanece necessariamente dentro da janela da PWA. Não há instalação nativa completa do Apps Script com este método.
+
+LINK CONFIGURADO PARA ABRIR A APLICAÇÃO:
+https://script.google.com/macros/s/AKfycbwjTmvOelyngmzoLL_VvCKdJLqO5NbbsKzbkk9gsT6KUODJ6UfQqTvvIUXNIU05fxo/exec
+
+Não foram alterados ficheiros do Apps Script nem folhas Google Sheets.

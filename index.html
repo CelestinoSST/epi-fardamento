@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gestão de Fardamento e EPI</title>
+<meta name="theme-color" content="#164a79">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="EPI/Fardamento">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<style>
+:root{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#173653;background:#edf2f7}*{box-sizing:border-box}body{margin:0;min-height:100dvh;display:grid;place-items:center;padding:22px}.card{max-width:420px;width:100%;background:#fff;padding:26px;border-radius:24px;box-shadow:0 14px 45px #17365324;text-align:center}.logo{width:156px;height:156px;border-radius:30px;object-fit:contain;display:block;margin:0 auto 16px}h1{font-size:24px;line-height:1.2;margin:0 0 12px}p{font-size:15px;line-height:1.5;color:#4e6277;margin:0 0 19px}.btn{display:block;text-align:center;background:#145c92;color:#fff;text-decoration:none;font-weight:750;border-radius:14px;padding:16px 14px;font-size:17px;box-shadow:0 5px 14px #145c9230}.hint{margin:18px 0 0;font-size:13px;color:#5b7183}.device{display:none;margin-top:15px;padding:13px;border-radius:12px;background:#f1f5fa;font-size:14px;line-height:1.5;text-align:left}.device.visible{display:block}.hidden{display:none}button{background:#e7eef7;border:0;padding:12px 16px;border-radius:10px;color:#164a79;font-weight:700;cursor:pointer;margin-top:12px}small{display:block;margin-top:15px;color:#6b7f90}
+</style>
+</head>
+<body>
+<main class="card">
+<img class="logo" src="./icon-512.png" alt="Logótipo Gestão de Fardamento e EPI">
+<h1>Gestão de Fardamento e EPI</h1>
+<p>Acesso à plataforma de pedidos de fardamento e equipamentos de proteção individual.</p>
+<a class="btn" id="openApp" href="https://script.google.com/macros/s/AKfycbwjTmvOelyngmzoLL_VvCKdJLqO5NbbsKzbkk9gsT6KUODJ6UfQqTvvIUXNIU05fxo/exec">Abrir aplicação</a>
+<div id="ios" class="device"><strong>Instalar no iPhone</strong>: abre esta página no Safari, toca em <strong>Partilhar</strong> e escolhe <strong>Adicionar ao ecrã principal</strong>.</div>
+<div id="android" class="device"><strong>Instalar no Android</strong>: abre esta página no Chrome, toca no menu <strong>⋮</strong> e escolhe <strong>Instalar aplicação</strong> ou <strong>Adicionar ao ecrã principal</strong>.</div>
+<button id="install" class="hidden" type="button">Instalar no telemóvel</button>
+<p class="hint">Depois de adicionares o ícone ao ecrã inicial, toca nele e seleciona «Abrir aplicação».</p>
+<small>O acesso à plataforma continua sujeito à autenticação habitual.</small>
+</main>
+<script>
+'use strict';
+let pendingInstall=null;
+const ua=navigator.userAgent||'';
+const isIOS=/iPad|iPhone|iPod/.test(ua);
+document.getElementById(isIOS?'ios':'android').classList.add('visible');
+window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();pendingInstall=event;document.getElementById('install').classList.remove('hidden');});
+document.getElementById('install').addEventListener('click',async()=>{if(!pendingInstall)return;pendingInstall.prompt();try{await pendingInstall.userChoice;}catch(e){}pendingInstall=null;document.getElementById('install').classList.add('hidden');});
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}
+</script>
+</body>
+</html>
